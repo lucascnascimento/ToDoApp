@@ -1,10 +1,16 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
-function App() {
+import Navbar from './Components/Layout/Navbar'
+
+const App = () => {
   return (
-    <div className="App">
-     
-    </div>
+    <Router>
+      <div className="App">
+          <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
+      </div>
+    </Router>
+
   );
 }
 
