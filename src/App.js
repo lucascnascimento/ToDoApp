@@ -10,7 +10,6 @@ const App = () => {
           <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
       </div>
     </Router>
-
   );
 }
 
