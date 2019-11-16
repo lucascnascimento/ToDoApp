@@ -9,7 +9,9 @@ import {
 } from '../types'
 
 const TodoState = props => {
-    const initialState = [{}]
+    const initialState = {
+        todoList: []
+    }
 
     const [state, dispatch] = useReducer(TodoReducer, initialState)
 
@@ -21,8 +23,11 @@ const TodoState = props => {
         })
     }
 
-    return <TodoContext.Provider>
-        [{}]
+    return <TodoContext.Provider value={{
+        todos: state.todoList,
+        addTodo
+    }}>
+        {props.children}
     </TodoContext.Provider>
 }
 
