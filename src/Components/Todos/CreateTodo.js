@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import TodoContext from '../../Context/Todo/todoContext'
+import nextId from 'react-id-generator'
 
 const CreateTodo = () => {
 
@@ -8,14 +9,12 @@ const CreateTodo = () => {
   const [project, setProject] = useState(' ')
   const [priority, setPriority] = useState(' ')
   const [context, setContext] = useState(' ')
-  const [creationDate, setCreationDate] = useState(null)
+  const [creationDate, setCreationDate] = useState(' ')
   const [completionDate, setCompletionDate] = useState(null)
   const [description, setDescription] = useState(' ')
   const [due, setDue] = useState(null)
-  const [isComplete, setIsComplete] = useState(false)
-  const [id, setId] = useState(' ')
-  const [isCreateTodoActive, setIsCreateTodoActive] = useState(false)
 
+  // Handles form state update
   const onChange = (e) => {
     const [project, priority] = e.target.name;
     e.preventDefault();
@@ -43,9 +42,22 @@ const CreateTodo = () => {
     }
   }
 
-  // TODO: I still have to clear the input field and give an unique id
+  // TODO: clear input field after submit, validate input conditions
   const onSubmit = (e) => {
     e.preventDefault();
+    
+    let id = nextId(); 
+    let date = new Date();
+
+    if (creationDate === ' ') { //!First onSubmit does not complete the date when this is not set
+      console.log("primeira iteração: ", date)
+      let year = date.getFullYear()
+      let month = date.getMonth() + 1
+      let day = date.getDate()
+      setCreationDate(`${year}-${month}-${day}`)
+      e.target.reset()
+    }
+
     const todoItem =  {
       project: project,
       priority: priority,
@@ -55,9 +67,19 @@ const CreateTodo = () => {
       description: description,
       due: due,
       isComplete: false,
-      id: ' ',
+      id: id,
     }
     todoContext.addTodo(todoItem)
+    clearState()    
+  }
+
+  const clearState = () => {
+    setProject(' ')
+    setPriority(' ')
+    setContext(' ')
+    setCreationDate(0)
+    setDescription(' ')
+    setDue(' ')
   }
 
   return (
