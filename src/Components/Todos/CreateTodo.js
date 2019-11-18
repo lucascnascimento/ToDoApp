@@ -1,6 +1,9 @@
 import React, {useState, useContext} from 'react'
 import TodoContext from '../../Context/Todo/todoContext'
 import nextId from 'react-id-generator'
+import DatePicker from 'react-datepicker'
+
+require('react-datepicker/dist/react-datepicker.css')
 
 const CreateTodo = () => {
 
@@ -9,59 +12,44 @@ const CreateTodo = () => {
   const [project, setProject] = useState(' ')
   const [priority, setPriority] = useState(' ')
   const [context, setContext] = useState(' ')
-  const [creationDate, setCreationDate] = useState(' ')
-  const [completionDate, setCompletionDate] = useState(null)
+  const [creationDate, setCreationDate] = useState(new Date())
+  const [completionDate, setCompletionDate] = useState(' ')
   const [description, setDescription] = useState(' ')
   const [due, setDue] = useState(null)
 
   // Handles form state update
   const onChange = (e) => {
-    const [project, priority] = e.target.name;
     e.preventDefault();
     switch (e.target.name) {
       case 'project':
-        setProject(e.target.value)
+        setProject(e.target.value.trim())
         break;
       case 'priority':
-        setPriority(e.target.value)
+        setPriority(e.target.value.trim())
         break;
       case 'context':
-        setContext(e.target.value)
-        break;
-      case 'creationDate':
-        setCreationDate(e.target.value)
+        setContext(e.target.value.trim())
         break;
       case 'description':
-        setDescription(e.target.value)
+        setDescription(e.target.value.trim())
         break;
       case 'due':
-        setDue(e.target.value)
+        setDue(e.target.value.trim())
         break;
       default:
         break;
     }
   }
 
-  // TODO: clear input field after submit, validate input conditions
   const onSubmit = (e) => {
     e.preventDefault();
     
     let id = nextId(); 
-    let date = new Date();
-
-    if (creationDate === ' ') { //!First onSubmit does not complete the date when this is not set
-      console.log("primeira iteração: ", date)
-      let year = date.getFullYear()
-      let month = date.getMonth() + 1
-      let day = date.getDate()
-      setCreationDate(`${year}-${month}-${day}`)
-      e.target.reset()
-    }
 
     const todoItem =  {
-      project: project,
-      priority: priority,
-      context: context,
+      project: `+${project}`,
+      priority: `(${priority})`,
+      context: `@${context}`,
       creationDate: creationDate,
       completionDate: completionDate,
       description: description,
@@ -69,17 +57,25 @@ const CreateTodo = () => {
       isComplete: false,
       id: id,
     }
+
     todoContext.addTodo(todoItem)
     clearState()    
   }
 
+  // TODO: Turn general date form into yyyy/mm/dd
+  const onChangeDate = (e) => {
+    console.log(e)
+    setCreationDate(e)
+  }
+
+  // Resets the state
   const clearState = () => {
     setProject(' ')
     setPriority(' ')
     setContext(' ')
-    setCreationDate(0)
+    setCreationDate(new Date())
     setDescription(' ')
-    setDue(' ')
+    setDue(null)
   }
 
   return (
@@ -88,29 +84,29 @@ const CreateTodo = () => {
         <div>
           <div>
             <label>Priority: </label>
-            <input type='text' name='priority' placeholder='Priority' onChange={onChange} required></input>
+            <input type='text' name='priority' value={priority} placeholder='Priority' onChange={onChange} required></input>
           </div>
           <div>
             <label>Creation date: </label>
-            <input type='date' name='creationDate' placeholder='Creation Date' onChange={onChange}></input>
+            <DatePicker selected={creationDate} value={creationDate} onChange={date => setCreationDate(date)} dateFormat="yyyy/MM/dd"/>
           </div>
           <div>
             <label>Due: </label>
-            <input type='date' name='due' placeholder='Due' onChange={onChange}></input>
+            <DatePicker selected={due} value={due} onChange={date => setDue(date)} dateFormat="yyyy/MM/dd"/>
           </div>
         </div>
         <div>
           <div>
             <label>Project Tag: </label>
-            <input type='text' name='project' placeholder='Project' onChange={onChange} required></input>
+            <input type='text' name='project' value={project} placeholder='Project' onChange={onChange} required></input>
           </div>
           <div>
             <label>Context Tag: </label>
-            <input type='text' name='context' placeholder='Context' onChange={onChange}></input>
+            <input type='text' name='context' value={context} placeholder='Context' onChange={onChange}></input>
           </div>
           <div>
             <label>Description: </label>
-            <input type='text' name='description' placeholder='Description' onChange={onChange}></input>
+            <input type='text' name='description' value={description} placeholder='Description' onChange={onChange}></input>
           </div>
           <input type='submit' value='Add ToDo'></input>
         </div>
