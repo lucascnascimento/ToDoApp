@@ -16,16 +16,23 @@ const TodoItem = ({todo}) => {
         project, 
     } = todo;
 
+    const renderDate = (date) => {
+        if (date !== null) {
+            let day = date.getDate()
+            let month = date.getMonth()
+            let year = date.getFullYear()
+            return `${year}-${month+1}-${day}`
+        }
+    }
+
     return (
         <div>
-            {console.log('context', context)}
-            {console.log('creationDate', creationDate)}
-            {/* <span>{completionDate}</span>
-            <span>{creationDate}</span> */}
+            <span>{renderDate(completionDate) + ' '}</span>
+            <span>{renderDate(creationDate) + ' '}</span>
             <span>{description}</span>
             <span>{project}</span>
             <span>{context}</span>
-            {/* <span>{due}</span> */}
+            <span>{renderDate(due)}</span>
         </div>
     )
 }
