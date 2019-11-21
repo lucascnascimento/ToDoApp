@@ -23,9 +23,25 @@ const TodoState = props => {
         })
     }
 
+    // Delete Todo
+    const deleteTodo = (id) => {
+        let index = state.todoList.findIndex((o)=>{
+            return o.id === id
+        })
+        if (index !== -1){
+            state.todoList.splice(index, 1)
+        }
+        console.log(index)
+        dispatch({
+            type: DELETE_TODO,
+            payload: id
+        })
+    }
+
     return <TodoContext.Provider value={{
         todos: state.todoList,
-        addTodo
+        addTodo,
+        deleteTodo
     }}>
         {props.children}
     </TodoContext.Provider>

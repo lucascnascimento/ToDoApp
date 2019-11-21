@@ -1,8 +1,15 @@
-import React  from 'react'
+import React, {useState, useContext}  from 'react'
 import PropTypes from 'prop-types'
+import TodoContext from '../../Context/Todo/todoContext'
+
 
 const TodoItem = ({todo}) => {
-    console.log('todo', todo)
+    const todoContext = useContext(TodoContext)
+    
+    /*
+    TODO: create the method to delete the item
+    TODO: create the method to handle item rendering (edit mode)
+     */
     
     const {
         completionDate, 
@@ -23,16 +30,25 @@ const TodoItem = ({todo}) => {
             let year = date.getFullYear()
             return `${year}-${month+1}-${day}`
         }
+        else{
+            return ' '
+        }    
+    }
+
+    const deleteItem = () =>{
+        todoContext.deleteTodo(id)
     }
 
     return (
         <div>
+            <span>{`(${priority})`}</span>
             <span>{renderDate(completionDate) + ' '}</span>
             <span>{renderDate(creationDate) + ' '}</span>
-            <span>{description}</span>
-            <span>{project}</span>
-            <span>{context}</span>
+            <span>{description + ' '}</span>
+            <span>{project + ' '}</span>
+            <span>{context + ' '}</span>
             <span>{renderDate(due)}</span>
+            <button onClick={deleteItem}>Delete</button>
         </div>
     )
 }
@@ -43,7 +59,4 @@ TodoItem.propTypes = {
 
 export default TodoItem
 
-//! O campo priority não está escapando os caracteres ()
-//! Não consigo renderizar os objetos de datas
 //! Criar um método global que permita editar a data pois tanto createTodo quando TodoItem precisam de modificar esse campo e salvar no formato yyyy/mm/dd
-//! Remover a validação de texto no CreateTodo, os caracteres serão renderizados em TodoItem

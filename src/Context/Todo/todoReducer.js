@@ -13,6 +13,10 @@ export default (state, action) => {
         ...state,
         todoList: list
       }
+    case DELETE_TODO:
+      return {
+        ...state
+      }
     default:
       return state;
   }
