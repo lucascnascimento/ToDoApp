@@ -6,12 +6,7 @@ import TodoContext from '../../Context/Todo/todoContext'
 const TodoItem = ({todo}) => {
     const todoContext = useContext(TodoContext)
     
-    /*
-    TODO: create the method to delete the item
-    TODO: create the method to handle item rendering (edit mode)
-     */
-    
-    const {
+    let {
         completionDate, 
         context, 
         creationDate, 
@@ -39,6 +34,14 @@ const TodoItem = ({todo}) => {
         todoContext.deleteTodo(id)
     }
 
+    const toggleCompletion = () =>{
+        isComplete = !isComplete
+        todoContext.toggleTodo({
+            id: id,
+            isComplete: isComplete
+        })
+    }
+
     return (
         <div>
             <span>{`(${priority})`}</span>
@@ -48,7 +51,9 @@ const TodoItem = ({todo}) => {
             <span>{project + ' '}</span>
             <span>{context + ' '}</span>
             <span>{renderDate(due)}</span>
+            <span>{isComplete.toString()}</span>
             <button onClick={deleteItem}>Delete</button>
+            <button onClick={toggleCompletion}>V</button>
         </div>
     )
 }
@@ -58,5 +63,3 @@ TodoItem.propTypes = {
 }
 
 export default TodoItem
-
-//! Criar um método global que permita editar a data pois tanto createTodo quando TodoItem precisam de modificar esse campo e salvar no formato yyyy/mm/dd

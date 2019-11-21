@@ -38,10 +38,19 @@ const TodoState = props => {
         })
     }
 
+    // Toggle Todo
+    const toggleTodo = (todo) => {
+        dispatch({
+            type: TOGGLE_TODO,
+            payload: todo
+        })
+    }  
+
     return <TodoContext.Provider value={{
         todos: state.todoList,
         addTodo,
-        deleteTodo
+        deleteTodo,
+        toggleTodo
     }}>
         {props.children}
     </TodoContext.Provider>
