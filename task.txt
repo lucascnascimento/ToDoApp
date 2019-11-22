@@ -1,0 +1,6 @@
+TodoItem.js
+
+OK: create the method to delete the item
+TODO: create the method to handle item rendering (edit mode)
+OK: create the method to mark it as complete
+TODO: Criar um método global que permita editar a data pois tanto createTodo quando TodoItem precisam de modificar esse campo e salvar no formato yyyy/mm/dd

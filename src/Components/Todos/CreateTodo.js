@@ -61,12 +61,6 @@ const CreateTodo = () => {
     clearState()    
   }
 
-  // TODO: Turn general date form into yyyy/mm/dd
-  const onChangeDate = (e) => {
-    console.log(e)
-    setCreationDate(e)
-  }
-
   // Resets the state
   const clearState = () => {
     setProject(' ')
