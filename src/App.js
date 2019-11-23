@@ -11,7 +11,7 @@ const App = () => {
   return (
     <TodoState>
       <Router>
-        <div className="App">
+        <div className="container">
             <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
             <CreateTodo />
             <TodosList />
