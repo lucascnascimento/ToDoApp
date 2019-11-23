@@ -25,13 +25,6 @@ const TodoState = props => {
 
     // Delete Todo
     const deleteTodo = (id) => {
-        let index = state.todoList.findIndex((o)=>{
-            return o.id === id
-        })
-        if (index !== -1){
-            state.todoList.splice(index, 1)
-        }
-        console.log(index)
         dispatch({
             type: DELETE_TODO,
             payload: id

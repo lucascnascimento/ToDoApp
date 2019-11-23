@@ -14,6 +14,13 @@ export default (state, action) => {
         todoList: list
       }
     case DELETE_TODO:
+      const id = action.payload
+      let index = state.todoList.findIndex((o)=>{
+        return o.id === id
+      })
+      if (index !== -1){
+          state.todoList.splice(index, 1)
+      }
       return {
         ...state
       }
