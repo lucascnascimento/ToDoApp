@@ -23,6 +23,7 @@ const TodoState = props => {
         })
     }
 
+<<<<<<< HEAD
     // Delete Todo
     const deleteTodo = (id) => {
         dispatch({
@@ -44,6 +45,11 @@ const TodoState = props => {
         addTodo,
         deleteTodo,
         toggleTodo
+=======
+    return <TodoContext.Provider value={{
+        todos: state.todoList,
+        addTodo
+>>>>>>> createTodo
     }}>
         {props.children}
     </TodoContext.Provider>
