@@ -25,14 +25,15 @@ export default (state, action) => {
         ...state
       }
     case TOGGLE_TODO:
-      const {id, isComplete} = action.payload
-
-      let index = state.todoList.findIndex((o)=>{
-        return o.id === id
+      const {todoId, isComplete} = action.payload
+      // console.log(todoId)
+      // console.log(isComplete)
+      let indexTodo = state.todoList.findIndex((o)=>{
+        return o.id === todoId
       })
       
-      if (index !== -1){
-        state.todoList[index].isComplete = isComplete
+      if (indexTodo !== -1){
+        state.todoList[indexTodo].isComplete = isComplete
       }
       return {
         ...state

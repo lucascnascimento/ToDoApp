@@ -37,7 +37,7 @@ const TodoItem = ({todo}) => {
     const toggleCompletion = () =>{
         isComplete = !isComplete
         todoContext.toggleTodo({
-            id: id,
+            todoId: id,
             isComplete: isComplete
         })
     }

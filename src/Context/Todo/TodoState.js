@@ -32,10 +32,10 @@ const TodoState = props => {
     }
 
     // Toggle Todo
-    const toggleTodo = (todo) => {
+    const toggleTodo = (todoInfo) => {
         dispatch({
             type: TOGGLE_TODO,
-            payload: todo
+            payload: todoInfo
         })
     }  
 
