@@ -3,10 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Navbar from './Components/Layout/Navbar'
 import CreateTodo from './Components/Todos/CreateTodo'
-<<<<<<< HEAD
 import TodosList from './Components/Todos/TodosList'
-=======
->>>>>>> createTodo
 
 import TodoState from './Context/Todo/TodoState'
 
@@ -17,10 +14,7 @@ const App = () => {
         <div className="App">
             <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
             <CreateTodo />
-<<<<<<< HEAD
             <TodosList />
-=======
->>>>>>> createTodo
         </div>
       </Router>
     </TodoState>

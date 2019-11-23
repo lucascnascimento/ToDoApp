@@ -7,16 +7,11 @@ import {
 
 export default (state, action) => {
   switch(action.type){
-<<<<<<< HEAD
     case ADD_TODO:{
-=======
-    case ADD_TODO:
->>>>>>> createTodo
       const list = state.todoList.concat(action.payload)
       return {
         ...state,
         todoList: list
-<<<<<<< HEAD
       }}
     case DELETE_TODO:{
       const id = action.payload
@@ -41,9 +36,6 @@ export default (state, action) => {
       return {
         ...state
       }}
-=======
-      }
->>>>>>> createTodo
     default:
       return state;
   }
