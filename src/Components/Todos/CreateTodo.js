@@ -13,7 +13,6 @@ const CreateTodo = () => {
   const [priority, setPriority] = useState(' ')
   const [context, setContext] = useState(' ')
   const [creationDate, setCreationDate] = useState(new Date())
-  const [completionDate, setCompletionDate] = useState(' ')
   const [description, setDescription] = useState(' ')
   const [due, setDue] = useState(null)
 
@@ -47,11 +46,11 @@ const CreateTodo = () => {
     let id = nextId(); 
 
     const todoItem =  {
-      project: `+${project}`,
-      priority: `(${priority})`,
-      context: `@${context}`,
+      project: project,
+      priority: priority,
+      context: context,
       creationDate: creationDate,
-      completionDate: completionDate,
+      completionDate: null,
       description: description,
       due: due,
       isComplete: false,
@@ -60,12 +59,6 @@ const CreateTodo = () => {
 
     todoContext.addTodo(todoItem)
     clearState()    
-  }
-
-  // TODO: Turn general date form into yyyy/mm/dd
-  const onChangeDate = (e) => {
-    console.log(e)
-    setCreationDate(e)
   }
 
   // Resets the state
