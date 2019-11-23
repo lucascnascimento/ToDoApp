@@ -3,22 +3,30 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({icon, title}) => {
     return (
-        <nav>
-            <h1>
-                <i className={icon}>{title}</i>
-            </h1>
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/Help'>Help</Link>
-                </li>
-                <li>
-                    <Link to='/About'>About</Link>
-                </li>
-            </ul>
-        </nav>
+			<nav>
+				<div className='container'>
+					<div className='nav-wrapper'>
+						<a href="#!" class="brand-logo"><i class="large material-icons">event_available</i>TodoApp</a>
+						<ul className="right hide-on-med-and-down">
+								<li>
+									<div>
+										<Link to='/'>Home</Link>
+									</div>
+								</li>
+								<li>
+									<div>
+										<Link to='/Help'>Help</Link>
+									</div>
+								</li>
+								<li>
+									<div>
+									<Link to='/About'>About</Link>
+									</div>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
     )
 }
 

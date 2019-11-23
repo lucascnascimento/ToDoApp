@@ -11,10 +11,10 @@ const App = () => {
   return (
     <TodoState>
       <Router>
+      <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
         <div className="container">
-            <Navbar title='ToDo App' icon='fas fa-calendar-check'/>
-            <CreateTodo />
-            <TodosList />
+          <CreateTodo />
+          <TodosList />
         </div>
       </Router>
     </TodoState>
