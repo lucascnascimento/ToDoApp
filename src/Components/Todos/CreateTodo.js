@@ -4,6 +4,7 @@ import nextId from 'react-id-generator'
 import DatePicker from 'react-datepicker'
 
 import M from "materialize-css/dist/js/materialize.min.js";
+import '../../css/style.css'
 
 require('react-datepicker/dist/react-datepicker.css')
 
@@ -74,39 +75,51 @@ const CreateTodo = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <div>
-          <div>
-            <label>Priority: </label>
-            <input type='text' name='priority' value={priority} placeholder='Priority' onChange={onChange} required></input>
+    <div className='card padding-top-sm margin-top-sm'>
+      <div className='row'>
+        <form onSubmit={onSubmit}>
+          {/* First Row */}
+          <div className='row'>
+            <div className='input-field col s4'>
+              <input type='text' name='priority' id='priority' value={priority} onChange={onChange}></input>
+              <label for='priority'>Priority: </label>
+            </div>
+            <div className='input-field col s4'>
+              <input type='text' name='project' id='project' value={project} onChange={onChange}></input>
+              <label for='project'>Project Tag: </label>
+            </div>
+            <div className='input-field col s4'>
+              <input type='text' name='context' id='context' value={context}onChange={onChange}></input>
+              <label for='context'>Context Tag: </label>
+            </div>
           </div>
-          <div>
-            <label>Creation date: </label>
-            <DatePicker selected={creationDate} value={creationDate} onChange={date => setCreationDate(date)} dateFormat="yyyy/MM/dd"/>
+          {/* Second Row */}
+          <div className='row'>
+            <div className='input-field col s12'>
+              <input type='text' name='description' id='description' value={description} onChange={onChange}></input>
+              <label for='description'>Description: </label>
+            </div>
           </div>
-          <div>
-            <label>Due: </label>
-            <DatePicker selected={due} value={due} onChange={date => setDue(date)} dateFormat="yyyy/MM/dd"/>
+          {/* Third Row */}
+          <div className='row'>
+            <div className='col m4 s6'>
+              <label>Creation date: </label>
+              <DatePicker selected={creationDate} value={creationDate} onChange={date => setCreationDate(date)} dateFormat="yyyy/MM/dd"/>
+            </div>
+            <div className='col m4 s6'>
+              <label>Due: </label>
+              <DatePicker selected={due} value={due} onChange={date => setDue(date)} dateFormat="yyyy/MM/dd"/>
+            </div>
+            <div className='col m4 s12'>
+              <button class="btn-large waves-effect valign-wrapper center-align btn-full-width" type="submit" name="action" value='Add ToDo'>Add ToDo
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
           </div>
-        </div>
-        <div>
-          <div>
-            <label>Project Tag: </label>
-            <input type='text' name='project' value={project} placeholder='Project' onChange={onChange} required></input>
-          </div>
-          <div>
-            <label>Context Tag: </label>
-            <input type='text' name='context' value={context} placeholder='Context' onChange={onChange}></input>
-          </div>
-          <div>
-            <label>Description: </label>
-            <input type='text' name='description' value={description} placeholder='Description' onChange={onChange}></input>
-          </div>
-          <input type='submit' value='Add ToDo'></input>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+    
   )
 }
 
