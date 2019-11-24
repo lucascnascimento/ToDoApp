@@ -40,21 +40,41 @@ const TodoItem = ({todo}) => {
             id: id,
             isComplete: isComplete
         })
-    }
-
+		}
+		
     return (
-        <div>
-            <span>{`(${priority})`}</span>
-            <span>{renderDate(completionDate) + ' '}</span>
-            <span>{renderDate(creationDate) + ' '}</span>
-            <span>{description + ' '}</span>
-            <span>{project + ' '}</span>
-            <span>{context + ' '}</span>
-            <span>{renderDate(due)}</span>
-            <span>{isComplete.toString()}</span>
-            <button onClick={deleteItem}>Delete</button>
-            <button onClick={toggleCompletion}>V</button>
-        </div>
+			<div className='card'>
+				<div className="row">
+					<div className="col m1">
+						<label >Priority</label>
+						<p className='center-align'>{`(${priority})`}</p>
+					</div>
+					<div className="col m2">
+						<label htmlFor="">Due</label>
+						<p className=''>{renderDate(due)}</p>
+					</div>
+					<div className="col m2">
+						<label htmlFor="">Creation</label>
+						<p className=''>{renderDate(creationDate) + ' '}</p>
+					</div>
+					<div className="col m5">
+						<label htmlFor="">Description</label>
+						<p className=''>{`@${project} ${description}`}</p>
+					</div>
+					<div className="col m2">
+						<label htmlFor="">Completion</label>
+						<p className=''>{renderDate(completionDate) + ' '}</p>
+					</div>
+				</div>
+				<div className="row">
+						<a onClick={toggleCompletion} className='col m1 center push-m10 green-text'>
+							<i className="small material-icons">done</i>
+						</a>
+						<a onClick={deleteItem} className='col m1 center push-m10 red-text'>
+							<i className="small material-icons">delete</i>
+						</a>
+				</div>
+			</div>
     )
 }
 
