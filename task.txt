@@ -1,24 +1,27 @@
 #TodoItem.js
 
 TODO: Add the completion date when the user mark the todo as complete
-TODO: Remove the context tag from the state
-TODO: Validade if the due date is after the create date
 TODO: Add the correct pointer for the <a> tags
-OK: create the method to delete the item
-OK: create the method to mark it as complete
+TODO: Visual validation (turn todo to green) when user mark as complete
+OK: Create the method to delete the item
+OK: Create the method to mark it as complete
 OK: Unify the project tag with the description tag
-CANCELED: create the method to handle item rendering (edit mode)
+CANCELED: Create the method to handle item rendering (edit mode)
 
 #CreateTodo.js
 
-TODO: Remove the context input field
 TODO: Change priority to radio button
+TODO: Add limit of characters on the description input field
+TODO: Validate if the due date is after the create date
+TODO: Validate if the description field is not empty
+OK: Remove the context tag from the state
+OK: Remove the context input field
 OK: Solve space input but on the description input field
 OK: Change for atributes to htmlFor
 
 #ListTodo.js
-TODO: Move competed todos to te bottom
-TODO: Filter by all, completed, opened
+TODO: Move completed todos to the bottom
+TODO: Filter by: all, completed, opened
 
 #Navbar.js
 

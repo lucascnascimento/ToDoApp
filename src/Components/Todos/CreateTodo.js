@@ -14,7 +14,6 @@ const CreateTodo = () => {
 
   const [project, setProject] = useState(' ')
   const [priority, setPriority] = useState(' ')
-  const [context, setContext] = useState(' ')
   const [creationDate, setCreationDate] = useState(new Date())
   const [description, setDescription] = useState(' ')
   const [due, setDue] = useState(null)
@@ -28,9 +27,6 @@ const CreateTodo = () => {
         break;
       case 'priority':
         setPriority(e.target.value.trim())
-        break;
-      case 'context':
-        setContext(e.target.value.trim())
         break;
       case 'description':
         setDescription(e.target.value)
@@ -51,7 +47,6 @@ const CreateTodo = () => {
     const todoItem =  {
       project: project,
       priority: priority,
-      context: context,
       creationDate: creationDate,
       completionDate: null,
       description: description,
@@ -68,7 +63,6 @@ const CreateTodo = () => {
   const clearState = () => {
     setProject(' ')
     setPriority(' ')
-    setContext(' ')
     setCreationDate(new Date())
     setDescription(' ')
     setDue(null)
@@ -80,17 +74,13 @@ const CreateTodo = () => {
         <form onSubmit={onSubmit}>
           {/* First Row */}
           <div className='row'>
-            <div className='input-field col s4'>
+            <div className='input-field col s6'>
               <input type='text' name='priority' id='priority' value={priority} onChange={onChange}></input>
               <label htmlFor='priority'>Priority: </label>
             </div>
-            <div className='input-field col s4'>
+            <div className='input-field col s6'>
               <input type='text' name='project' id='project' value={project} onChange={onChange}></input>
               <label htmlFor='project'>Project Tag: </label>
-            </div>
-            <div className='input-field col s4'>
-              <input type='text' name='context' id='context' value={context}onChange={onChange}></input>
-              <label htmlFor='context'>Context Tag: </label>
             </div>
           </div>
           {/* Second Row */}
@@ -111,8 +101,8 @@ const CreateTodo = () => {
               <DatePicker selected={due} value={due} onChange={date => setDue(date)} dateFormat="yyyy/MM/dd"/>
             </div>
             <div className='col m4 s12'>
-              <button class="btn-large waves-effect valign-wrapper center-align btn-full-width" type="submit" name="action" value='Add ToDo'>Add ToDo
-                <i class="material-icons right">send</i>
+              <button className="btn-large waves-effect valign-wrapper center-align btn-full-width" type="submit" name="action" value='Add ToDo'>Add ToDo
+                <i className="material-icons right">send</i>
               </button>
             </div>
           </div>

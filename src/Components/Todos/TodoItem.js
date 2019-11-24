@@ -8,7 +8,6 @@ const TodoItem = ({todo}) => {
     
     let {
         completionDate, 
-        context, 
         creationDate, 
         description, 
         due,
