@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
+
 import M from "materialize-css/dist/js/materialize.min.js";
+import '../../css/style.css'
 
 
 const Navbar = ({icon, title}) => {
@@ -15,11 +17,17 @@ const Navbar = ({icon, title}) => {
 
     return (
 			<div>
-				<nav>
+				<nav className='teal darken-2'>
 					<div className='container'>
 						<div className='nav-wrapper'>
-							<a href="" class="brand-logo"><i class="large material-icons">{icon}</i>{title}</a>
-							<a className="hide-on-large-only sidenav-trigger" data-target='slide-out'>
+							<div className="">
+								<a href="" className="brand-logo">
+									<i className="tiny material-icons hide-on-med-and-down">{icon}</i>
+									{title}
+								</a>
+							</div>
+							{/* Hamburguer menu button */}
+							<a className="hide-on-large-only sidenav-trigger cursor-pointer" data-target='slide-out'>
 								<i className='material-icons'>menu</i>
 							</a>
 							<ul className="right hide-on-med-and-down">

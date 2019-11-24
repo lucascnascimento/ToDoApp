@@ -20,5 +20,6 @@ TODO: Move competed todos to te bottom
 
 #Navbar.js
 
-TODO: Change class atributes to className
 TODO: Change icon size
+OK: Change hamburguer menu pointer
+OK: Change class atributes to className
