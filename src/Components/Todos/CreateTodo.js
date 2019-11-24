@@ -3,6 +3,8 @@ import TodoContext from '../../Context/Todo/todoContext'
 import nextId from 'react-id-generator'
 import DatePicker from 'react-datepicker'
 
+import M from "materialize-css/dist/js/materialize.min.js";
+
 require('react-datepicker/dist/react-datepicker.css')
 
 const CreateTodo = () => {
