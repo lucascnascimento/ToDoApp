@@ -2,7 +2,6 @@
 
 TODO: Add the completion date when the user mark the todo as complete
 TODO: Remove the context tag from the state
-TODO: Change priority to radio button
 TODO: Validade if the due date is after the create date
 TODO: Add the correct pointer for the <a> tags
 OK: create the method to delete the item
@@ -12,11 +11,14 @@ CANCELED: create the method to handle item rendering (edit mode)
 
 #CreateTodo.js
 
-TODO: Change for atributes to htmlFor
-TODO: Solve space input but on the description input field
+TODO: Remove the context input field
+TODO: Change priority to radio button
+OK: Solve space input but on the description input field
+OK: Change for atributes to htmlFor
 
 #ListTodo.js
 TODO: Move competed todos to te bottom
+TODO: Filter by all, completed, opened
 
 #Navbar.js
 

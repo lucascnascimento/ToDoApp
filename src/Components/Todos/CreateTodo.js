@@ -33,7 +33,7 @@ const CreateTodo = () => {
         setContext(e.target.value.trim())
         break;
       case 'description':
-        setDescription(e.target.value.trim())
+        setDescription(e.target.value)
         break;
       case 'due':
         setDue(e.target.value.trim())
@@ -82,22 +82,22 @@ const CreateTodo = () => {
           <div className='row'>
             <div className='input-field col s4'>
               <input type='text' name='priority' id='priority' value={priority} onChange={onChange}></input>
-              <label for='priority'>Priority: </label>
+              <label htmlFor='priority'>Priority: </label>
             </div>
             <div className='input-field col s4'>
               <input type='text' name='project' id='project' value={project} onChange={onChange}></input>
-              <label for='project'>Project Tag: </label>
+              <label htmlFor='project'>Project Tag: </label>
             </div>
             <div className='input-field col s4'>
               <input type='text' name='context' id='context' value={context}onChange={onChange}></input>
-              <label for='context'>Context Tag: </label>
+              <label htmlFor='context'>Context Tag: </label>
             </div>
           </div>
           {/* Second Row */}
           <div className='row'>
             <div className='input-field col s12'>
               <input type='text' name='description' id='description' value={description} onChange={onChange}></input>
-              <label for='description'>Description: </label>
+              <label htmlFor='description'>Description: </label>
             </div>
           </div>
           {/* Third Row */}
