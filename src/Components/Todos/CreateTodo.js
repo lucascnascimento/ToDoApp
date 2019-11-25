@@ -74,10 +74,31 @@ const CreateTodo = () => {
         <form onSubmit={onSubmit}>
           {/* First Row */}
           <div className='row'>
-            <div className='input-field col s6'>
+            {/* Radio buttons */}
+            <div className="col s6">
+              <div className="">
+                <label htmlFor="radioHigh">
+                  <input type="radio" name="priority" id="radioHigh"/>
+                  High
+                </label>
+              </div>
+              <div className="">
+                <label htmlFor="radioMedium">
+                  <input type="radio" name="priority" id="radioMedium"/>
+                  Medium
+                </label>
+              </div>
+              <div className="">
+                <label htmlFor="radioLow">
+                  <input type="radio" name="priority" id="radioLow"/>
+                  Low
+                </label>
+              </div>
+            </div>
+            {/* <div className='input-field col s6'>
               <input type='text' name='priority' id='priority' value={priority} onChange={onChange}></input>
               <label htmlFor='priority'>Priority: </label>
-            </div>
+            </div> */}
             <div className='input-field col s6'>
               <input type='text' name='project' id='project' value={project} onChange={onChange}></input>
               <label htmlFor='project'>Project Tag: </label>
