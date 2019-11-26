@@ -75,31 +75,24 @@ const CreateTodo = () => {
           {/* First Row */}
           <div className='row'>
             {/* Radio buttons */}
-            <div className="col s6">
-              <div className="">
-                <label htmlFor="radioHigh">
-                  <input type="radio" name="priority" id="radioHigh"/>
-                  High
-                </label>
-              </div>
-              <div className="">
-                <label htmlFor="radioMedium">
-                  <input type="radio" name="priority" id="radioMedium"/>
-                  Medium
-                </label>
-              </div>
-              <div className="">
-                <label htmlFor="radioLow">
-                  <input type="radio" name="priority" id="radioLow"/>
-                  Low
-                </label>
-              </div>
-            </div>
-            {/* <div className='input-field col s6'>
-              <input type='text' name='priority' id='priority' value={priority} onChange={onChange}></input>
-              <label htmlFor='priority'>Priority: </label>
-            </div> */}
-            <div className='input-field col s6'>
+                <div className="col m6 s12 row">
+                  <label htmlFor="priorityContainer">Priority:</label>
+                  <div className="flex-container-spc-evnly" id='priorityContainer'>
+                    <label htmlFor="radioHigh">
+                      <input type="radio" name="priority" id="radioHigh" value='high'/>
+                      <span>High</span>
+                    </label>
+                    <label htmlFor="radioMedium">
+                      <input type="radio" name="priority" id="radioMedium" value='medium'/>
+                      <span>Medium</span>
+                    </label>
+                    <label htmlFor="radioLow">
+                      <input type="radio" name="priority" id="radioLow" value='low'/>
+                      <span>Low</span>
+                    </label>
+                  </div>
+                </div>
+            <div className='input-field col m6 s12'>
               <input type='text' name='project' id='project' value={project} onChange={onChange}></input>
               <label htmlFor='project'>Project Tag: </label>
             </div>
@@ -122,7 +115,7 @@ const CreateTodo = () => {
               <DatePicker selected={due} value={due} onChange={date => setDue(date)} dateFormat="yyyy/MM/dd"/>
             </div>
             <div className='col m4 s12'>
-              <button className="btn-large waves-effect valign-wrapper center-align btn-full-width" type="submit" name="action" value='Add ToDo'>Add ToDo
+              <button className="btn-large waves-effect valign-wrapper center-align btn-full-width black" type="submit" name="action" value='Add ToDo'>Add ToDo
                 <i className="material-icons right">send</i>
               </button>
             </div>

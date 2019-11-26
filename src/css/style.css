@@ -13,3 +13,8 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.flex-container-spc-evnly{
+  display: flex;
+  justify-content: space-evenly;
+}
