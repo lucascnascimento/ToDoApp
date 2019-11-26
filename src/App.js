@@ -6,18 +6,21 @@ import CreateTodo from './Components/Todos/CreateTodo'
 import TodosList from './Components/Todos/TodosList'
 
 import TodoState from './Context/Todo/TodoState'
+import AlertState from './Context/Alert/AlertState'
 
 const App = () => {
   return (
-    <TodoState>
-      <Router>
-      <Navbar title='TodoApp' icon='event_available'/>
-        <div className="container">
-          <CreateTodo />
-          <TodosList />
-        </div>
-      </Router>
-    </TodoState>
+    <AlertState>
+      <TodoState>
+        <Router>
+        <Navbar title='TodoApp' icon='event_available'/>
+          <div className="container">
+            <CreateTodo />
+            <TodosList />
+          </div>
+        </Router>
+      </TodoState>
+    </AlertState>
   );
 }
 

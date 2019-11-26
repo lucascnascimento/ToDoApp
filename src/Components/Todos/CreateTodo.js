@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import TodoContext from '../../Context/Todo/todoContext'
 import nextId from 'react-id-generator'
 import DatePicker from 'react-datepicker'
+import Alert from '../Layout/Alert'
+import AlertContext from '../../Context/Alert/alertContext'
 
 import M from "materialize-css/dist/js/materialize.min.js";
 import '../../css/style.css'
@@ -11,6 +13,7 @@ require('react-datepicker/dist/react-datepicker.css')
 const CreateTodo = () => {
 
   const todoContext = useContext(TodoContext)
+  const alertContext = useContext(AlertContext)
 
   const [project, setProject] = useState(' ')
   const [priority, setPriority] = useState(' ')
@@ -47,20 +50,20 @@ const CreateTodo = () => {
     let isDueOk = true;
     
     if(description === ' '){
-      alert("Please enter a valid description")
+      alertContext.setAlert('Please enter a description', 'light')
       isDescriptionOk = false;
     }
     if (due != null) {
       if (due.getFullYear() < creationDate.getFullYear()) {
-        alert("Time machines doesn't exist! Please enter a valid due date")
+        alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
         isDueOk = false;
       }
       else if(due.getMonth() < creationDate.getMonth()){
-        alert("Time machines doesn't exist! Please enter a valid due date")
+        alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
         isDueOk = false;
       }
       else if (due.getDate() < creationDate.getDate()) {
-        alert("Time machines doesn't exist! Please enter a valid due date")
+        alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
         isDueOk = false;
       }
     }
@@ -96,6 +99,7 @@ const CreateTodo = () => {
     <div className='card padding-top-sm margin-top-sm'>
       <div className='row'>
         <form onSubmit={onSubmit}>
+          <Alert />
           {/* First Row */}
           <div className='row'>
             {/* Radio buttons */}
