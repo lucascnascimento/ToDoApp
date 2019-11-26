@@ -39,24 +39,48 @@ const CreateTodo = () => {
     }
   }
 
+  // Submit the form and passes the info to the state
   const onSubmit = (e) => {
     e.preventDefault();
     
-    let id = nextId(); 
-
-    const todoItem =  {
-      project: project,
-      priority: priority,
-      creationDate: creationDate,
-      completionDate: null,
-      description: description,
-      due: due,
-      isComplete: false,
-      id: id,
+    let isDescriptionOk = true;
+    let isDueOk = true;
+    
+    if(description === ' '){
+      alert("Please enter a valid description")
+      isDescriptionOk = false;
     }
+    if (due != null) {
+      if (due.getFullYear() < creationDate.getFullYear()) {
+        alert("Time machines doesn't exist! Please enter a valid due date")
+        isDueOk = false;
+      }
+      else if(due.getMonth() < creationDate.getMonth()){
+        alert("Time machines doesn't exist! Please enter a valid due date")
+        isDueOk = false;
+      }
+      else if (due.getDate() < creationDate.getDate()) {
+        alert("Time machines doesn't exist! Please enter a valid due date")
+        isDueOk = false;
+      }
+    }
+    if(isDescriptionOk && isDueOk){
+      let id = nextId(); 
 
-    todoContext.addTodo(todoItem)
-    clearState()    
+      const todoItem =  {
+        project: project,
+        priority: priority,
+        creationDate: creationDate,
+        completionDate: null,
+        description: description,
+        due: due,
+        isComplete: false,
+        id: id,
+      }
+
+      todoContext.addTodo(todoItem)
+      clearState() 
+    }
   }
 
   // Resets the state

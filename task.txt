@@ -12,8 +12,9 @@ CANCELED: Create the method to handle item rendering (edit mode)
 
 TODO: Change priority to radio button
 TODO: Add limit of characters on the description input field
-TODO: Validate if the due date is after the create date
-TODO: Validate if the description field is not empty
+TODO: Change validation from dialog box to visual box
+OK: Validate if the due date is after the create date
+OK: Validate if the description field is not empty
 OK: Remove the context tag from the state
 OK: Remove the context input field
 OK: Solve space input but on the description input field
