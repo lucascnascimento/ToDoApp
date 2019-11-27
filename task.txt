@@ -10,9 +10,8 @@ CANCELED: Create the method to handle item rendering (edit mode)
 
 #CreateTodo.js
 
-TODO: Change priority to radio button
-TODO: Add limit of characters on the description input field
 TODO: Implement Style to visual validation
+OK: Change priority to radio button
 OK: Change validation from dialog box to visual box
 OK: Validate if the due date is after the create date
 OK: Validate if the description field is not empty
@@ -20,6 +19,7 @@ OK: Remove the context tag from the state
 OK: Remove the context input field
 OK: Solve space input but on the description input field
 OK: Change for atributes to htmlFor
+CANCELED: Add limit of characters on the description input field
 
 #ListTodo.js
 TODO: Move completed todos to the bottom

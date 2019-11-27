@@ -16,20 +16,19 @@ const CreateTodo = () => {
   const alertContext = useContext(AlertContext)
 
   const [project, setProject] = useState(' ')
-  const [priority, setPriority] = useState(' ')
+  const [priority, setPriority] = useState('High')
   const [creationDate, setCreationDate] = useState(new Date())
   const [description, setDescription] = useState(' ')
   const [due, setDue] = useState(null)
 
   // Handles form state update
   const onChange = (e) => {
-    e.preventDefault();
     switch (e.target.name) {
       case 'project':
         setProject(e.target.value.trim())
         break;
       case 'priority':
-        setPriority(e.target.value.trim())
+        setPriority(e.target.value)
         break;
       case 'description':
         setDescription(e.target.value)
@@ -49,10 +48,12 @@ const CreateTodo = () => {
     let isDescriptionOk = true;
     let isDueOk = true;
     
+    // Check if the description is empty
     if(description === ' '){
       alertContext.setAlert('Please enter a description', 'light')
       isDescriptionOk = false;
     }
+    // Check if the due date comes after the creation date
     if (due != null) {
       if (due.getFullYear() < creationDate.getFullYear()) {
         alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
@@ -67,6 +68,7 @@ const CreateTodo = () => {
         isDueOk = false;
       }
     }
+    // Submit the info and clean the input fields
     if(isDescriptionOk && isDueOk){
       let id = nextId(); 
 
@@ -89,7 +91,7 @@ const CreateTodo = () => {
   // Resets the state
   const clearState = () => {
     setProject(' ')
-    setPriority(' ')
+    setPriority('High')
     setCreationDate(new Date())
     setDescription(' ')
     setDue(null)
@@ -107,15 +109,25 @@ const CreateTodo = () => {
                   <label htmlFor="priorityContainer">Priority:</label>
                   <div className="flex-container-spc-evnly" id='priorityContainer'>
                     <label htmlFor="radioHigh">
-                      <input type="radio" name="priority" id="radioHigh" value='high'/>
+                      <input type="radio" name="priority" id="radioHigh" value='High'
+                        onChange={onChange}
+                        checked={priority === "High"}
+                        className='red-text'
+                        />
                       <span>High</span>
                     </label>
                     <label htmlFor="radioMedium">
-                      <input type="radio" name="priority" id="radioMedium" value='medium'/>
+                      <input type="radio" name="priority" id="radioMedium" value='Medium'
+                        onChange={onChange}
+                        checked={priority === "Medium"}
+                        />
                       <span>Medium</span>
                     </label>
                     <label htmlFor="radioLow">
-                      <input type="radio" name="priority" id="radioLow" value='low'/>
+                      <input type="radio" name="priority" id="radioLow" value='Low'
+                        onChange={onChange}
+                        checked={priority === "Low"}
+                        />
                       <span>Low</span>
                     </label>
                   </div>
