@@ -35,9 +35,12 @@ const TodoItem = ({todo}) => {
 
     const toggleCompletion = () =>{
         isComplete = !isComplete
+        completionDate = new Date()
+        console.log(completionDate)
         todoContext.toggleTodo({
             id: id,
-            isComplete: isComplete
+            isComplete: isComplete,
+            completionDate: completionDate
         })
 		}
 		
@@ -66,10 +69,10 @@ const TodoItem = ({todo}) => {
 					</div>
 				</div>
 				<div className="row">
-						<a onClick={toggleCompletion} className='col m1 center push-m10 green-text'>
+						<a onClick={toggleCompletion} className='col m1 center push-m10 green-text cursor-pointer'>
 							<i className="small material-icons">done</i>
 						</a>
-						<a onClick={deleteItem} className='col m1 center push-m10 red-text'>
+						<a onClick={deleteItem} className='col m1 center push-m10 red-text cursor-pointer'>
 							<i className="small material-icons">delete</i>
 						</a>
 				</div>
