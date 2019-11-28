@@ -50,7 +50,7 @@ const CreateTodo = () => {
     
     // Check if the description is empty
     if(description === ' '){
-      alertContext.setAlert('Please enter a description', 'light')
+      alertContext.setAlert('Please enter a description!', 'light')
       isDescriptionOk = false;
     }
     // Check if the due date comes after the creation date

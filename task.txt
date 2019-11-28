@@ -10,7 +10,7 @@ CANCELED: Create the method to handle item rendering (edit mode)
 
 #CreateTodo.js
 
-TODO: Implement Style to visual validation
+OK: Implement Style to visual validation
 OK: Change priority to radio button
 OK: Change validation from dialog box to visual box
 OK: Validate if the due date is after the create date

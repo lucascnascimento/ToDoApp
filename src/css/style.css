@@ -18,3 +18,7 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.inline-icon{
+  vertical-align: middle;
+}

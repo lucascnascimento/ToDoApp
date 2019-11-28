@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import AlertContext from '../../Context/Alert/alertContext'
 
+
 const Alert = () =>{
   const alertContext = useContext(AlertContext)
 
@@ -8,8 +9,9 @@ const Alert = () =>{
 
   return(
     alert !== null && (
-      <div className={`alert alert-${alert.type}`}>
-        <i className='fas fa-info-circle'></i>{alert.msg}
+      <div className={'card red lighten-1 center white-text'}>
+        <i className='material-icons small inline-icon'>error</i>
+        <span className='inline-icon'>{alert.msg}</span>
       </div>
     )
   )
