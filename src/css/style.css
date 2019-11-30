@@ -6,6 +6,10 @@
   margin-top:1rem !important;
 }
 
+.pd-left-sm{
+  padding-left: 1rem;
+}
+
 .btn-full-width {
   width: 100%;
 }
@@ -21,4 +25,44 @@
 
 .inline-icon{
   vertical-align: middle;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-col{
+  flex-basis: 100%;
+}
+
+.m_10{
+  flex: 1;
+}
+
+.m_20{
+  flex: 2;
+}
+
+.m_50{
+  flex: 5;
+}  
+
+@media screen and (max-width: 600px){
+  .s_100{
+    flex-basis: 100%;
+  }
+  
+  .s_20{
+    flex: 2;
+  }
+
+  .s_45{
+    flex: 4.5;
+  }
+  
+  .s_50{
+    flex: 5;
+  } 
 }

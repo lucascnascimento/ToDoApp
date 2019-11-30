@@ -81,24 +81,28 @@ const TodoItem = ({todo}) => {
 
 	return (
 		<div className='card'>
-			<div className="row">
-				<div className={`col m1 ${todoItemColor.priorityField}`}>
-					<label >Priority</label>
-					<p className='center-align'>{`${priority}`}</p>
+			<div className="flex-row">
+				<div className={`flex-col m_10 s_10 pd-left-sm ${todoItemColor.priorityField}`}>
+
 				</div>
-				<div className={`col m2 ${todoItemColor.dueField}`}>
+				<div className={`flex-col m_20 s_45 pd-left-sm ${todoItemColor.dueField}`}>
 					<label htmlFor="">Due</label>
 					<p className=''>{renderDate(due)}</p>
 				</div>
-				<div className={`col m2 ${todoItemColor.creationField}`}>
+				<div className={`flex-col m_20 s_45 pd-left-sm ${todoItemColor.creationField}`}>
 					<label htmlFor="">Creation</label>
 					<p className=''>{renderDate(creationDate) + ' '}</p>
 				</div>
-				<div className={`col m5 ${todoItemColor.descriptionField}`}>
+				<div className={`flex-col m_50 s_100 pd-left-sm ${todoItemColor.descriptionField}`}>
 					<label htmlFor="">Description</label>
-					<p className=''>{`@${project} ${description}`}</p>
+					<p>
+						{project !== " " && 
+							<span className="chip">{`@${project} `}</span>
+						}					
+						{`${description}`}
+					</p>
 				</div>
-				<div className={`col m2 ${todoItemColor.completionField}`}>
+				<div className={`flex-col m_20 s_100 pd-left-sm ${todoItemColor.completionField}`}>
 					<label htmlFor="">Completion</label>
 					<p className=''>{renderDate(completionDate) + ' '}</p>
 				</div>
