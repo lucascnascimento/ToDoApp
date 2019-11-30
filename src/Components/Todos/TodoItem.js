@@ -1,4 +1,4 @@
-import React, {useState, useContext}  from 'react'
+import React, {useState, useContext, useEffect}  from 'react'
 import PropTypes from 'prop-types'
 import TodoContext from '../../Context/Todo/todoContext'
 
@@ -14,6 +14,18 @@ const TodoItem = ({todo}) => {
 		completionField: "grey lighten-5",
 		buttonsField: "grey lighten-3",
 	})
+
+	useEffect (() => {
+		if (priority === 'High') {
+			setTodoItemColor({...todoItemColor, priorityField:'red'})
+		}
+		else if (priority === 'Medium'){
+			setTodoItemColor({...todoItemColor, priorityField:'yellow'})
+		}
+		else{
+			setTodoItemColor({...todoItemColor, priorityField:'green'})
+		}
+	}, [todoItemColor.priorityField])
     
 	let {
 		completionDate, 
@@ -26,6 +38,7 @@ const TodoItem = ({todo}) => {
 		project, 
 	} = todo;
 
+	// Renders the date in a more user friendly way
 	const renderDate = (date) => {
 		if (date !== null) {
 			let day = date.getDate()
@@ -38,14 +51,16 @@ const TodoItem = ({todo}) => {
 		}    
 	}
 
+	// Deletes an item
 	const deleteItem = () =>{
 		todoContext.deleteTodo(id)
 	}
 
+	// Toggles todo completion state
 	const toggleCompletion = () =>{
 		isComplete = !isComplete
 		completionDate = new Date()
-		console.log(completionDate)
+		changeColors()
 		todoContext.toggleTodo({
 			id: id,
 			isComplete: isComplete,
@@ -53,14 +68,25 @@ const TodoItem = ({todo}) => {
 		})
 	}
 
+	// Changes de color of the todo item
+	const changeColors = () =>{
+		setTodoItemColor({
+			dueField: "light-green lighten-4",
+			creationField: "light-green lighten-5",
+			descriptionField: "light-green lighten-4",
+			completionField: "light-green lighten-5",
+			buttonsField: "light-green lighten-3",
+		})
+	}
+
 	return (
 		<div className='card'>
 			<div className="row">
-				<div className="col m1">
+				<div className={`col m1 ${todoItemColor.priorityField}`}>
 					<label >Priority</label>
-					<p className='center-align'>{`(${priority})`}</p>
+					<p className='center-align'>{`${priority}`}</p>
 				</div>
-				<div className={`col m2 ${todoItemColor.dueField} full-height`}>
+				<div className={`col m2 ${todoItemColor.dueField}`}>
 					<label htmlFor="">Due</label>
 					<p className=''>{renderDate(due)}</p>
 				</div>

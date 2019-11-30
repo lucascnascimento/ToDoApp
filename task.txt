@@ -11,6 +11,7 @@ CANCELED: Create the method to handle item rendering (edit mode)
 
 #CreateTodo.js
 
+ISSUE#1: Fix due date issue: If the day number is smaller then 
 OK: Implement Style to visual validation
 OK: Change priority to radio button
 OK: Change validation from dialog box to visual box
@@ -23,8 +24,9 @@ OK: Change for atributes to htmlFor
 CANCELED: Add limit of characters on the description input field
 
 #ListTodo.js
-TODO: Move completed todos to the bottom
 TODO: Filter by: all, completed, opened
+TODO: Filter by tag
+CANCELED: Move completed todos to the bottom
 
 #Navbar.js
 
