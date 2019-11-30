@@ -55,17 +55,15 @@ const CreateTodo = () => {
     }
     // Check if the due date comes after the creation date
     if (due != null) {
-      if (due.getFullYear() < creationDate.getFullYear()) {
-        alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
-        isDueOk = false;
+      if (due.getFullYear() === creationDate.getFullYear() &&
+      due.getMonth() === creationDate.getMonth() &&
+      due.getDate() === creationDate.getDate()
+      ){
+        isDueOk = true
       }
-      else if(due.getMonth() < creationDate.getMonth()){
+      else if (due.getTime() < creationDate.getTime()) {
         alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
-        isDueOk = false;
-      }
-      else if (due.getDate() < creationDate.getDate()) {
-        alertContext.setAlert("Time machines doesn't exist! Please enter a valid due date", 'light')
-        isDueOk = false;
+        isDueOk = false
       }
     }
     // Submit the info and clean the input fields
