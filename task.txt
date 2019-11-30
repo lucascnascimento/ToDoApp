@@ -1,7 +1,7 @@
 #TodoItem.js
 
 TODO: Visual validation (turn todo to green) when user mark as complete
-TODO: Make "done" button disappear when the todo is complete
+OK: Make "done" button disappear when the todo is complete
 OK: Add the completion date when the user mark the todo as complete
 OK: Add the correct pointer for the <a> tags
 OK: Create the method to delete the item
