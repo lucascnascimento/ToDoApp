@@ -25,7 +25,7 @@ const CreateTodo = () => {
   const onChange = (e) => {
     switch (e.target.name) {
       case 'project':
-        setProject(e.target.value.trim())
+        setProject(e.target.value)
         break;
       case 'priority':
         setPriority(e.target.value)
@@ -34,7 +34,7 @@ const CreateTodo = () => {
         setDescription(e.target.value)
         break;
       case 'due':
-        setDue(e.target.value.trim())
+        setDue(e.target.value)
         break;
       default:
         break;
