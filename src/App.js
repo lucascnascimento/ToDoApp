@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './Components/Layout/Navbar'
 import Home from './Components/Pages/Home'
 import About from './Components/Pages/About'
-import Help from './Components/Pages/Help'
 
 import TodoState from './Context/Todo/TodoState'
 import AlertState from './Context/Alert/AlertState'
@@ -19,7 +18,6 @@ const App = () => {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/about' component={About}/>
-              <Route exact path='/help' component={Help}/>
             </Switch>
           </div>
         </Router>

@@ -38,11 +38,6 @@ const Navbar = ({icon, title}) => {
 									</li>
 									<li>
 										<div>
-											<Link to='/Help'>Help</Link>
-										</div>
-									</li>
-									<li>
-										<div>
 										<Link to='/About'>About</Link>
 										</div>
 									</li>
