@@ -11,7 +11,7 @@ const TodosList = () => {
     <div>
       {todos.map(todo => {
         return <TodoItem key={todo.id} todo={todo} />
-      })}
+      }).reverse()}
     </div>
   )
 }
